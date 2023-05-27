@@ -1,1 +1,141 @@
-<meta http-equiv="refresh" content="0; url=https://zhuanlan.zhihu.com/p/560566233">
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>unlock.js - jQuery 滑动解锁插件</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="0; url=">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../assets/less/unlock.css">
+<style type="text/css" media="screen">
+.bar {
+	margin: 50px;
+	margin-left:0px;
+	height: 40px;
+	width: 300px;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>jQuery 滑动解锁插件</h1>
+		<h2>功能</h2>
+		<ul>
+			<li>滑动解锁插</li>
+			<li>尺寸、颜色、字体大小等都可以个性化定制</li>
+			<li>完成解锁后会有回调函数，用来触发进一步的数据处理</li>
+		</ul>
+		<h2>使用方法</h2>
+		<ol>
+			<li>引入插件文件</li>
+				<code>
+					&lt;script src='unlock.js'&gt;&lt;/script&gt;
+					<br />
+					&lt;link rel="stylesheet" type="text/css" href="unlock.css"&gt;
+				</code>
+			<li>创建一个div,作为容器,比如</li>
+				<code>&lt;div id = &#39;foo&#39;&gt;&lt;/div&gt;</code>
+			<li>在脚本中初始化</li>
+				<code>
+					var $container = $(&#39;#foo&#39;);<br />
+					$container.slideToUnlock(options);
+				</code>
+		</ol>
+		<p>其中options为可选参数,有默认值 options参数列表</p>
+		<h2>参数列表</h2>
+		<table class="table table-bordered table-hovered">
+			<thead>
+				<tr>
+					<th>name</th>
+					<th>describe</th>
+					<th>default</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>width</td>
+					<td>width of the slider</td>
+					<td>width of container element</td>
+				</tr>
+				<tr>
+					<td>height</td>
+					<td>height of the slider</td>
+					<td>height of container element</td>
+				</tr>
+				<tr>
+					<td>bgColor</td>
+					<td>background color</td>
+					<td>#E8E8E8</td>
+				</tr>
+				<tr>
+					<td>progressColor</td>
+					<td>color of the progress bar</td>
+					<td>#FFE97F</td>
+				</tr>
+				<tr>
+					<td>handleColor</td>
+					<td>color of the handler</td>
+					<td>#fff</td>
+				</tr>
+				<tr>
+					<td>succColor</td>
+					<td>background color when successfully unlocked</td>
+					<td>#78D02E</td>
+				</tr>
+				<tr>
+					<td>text</td>
+					<td>text on the progress bar</td>
+					<td>&#39;slide to unlock&#39;</td>
+				</tr>
+				<tr>
+					<td>textColor</td>
+					<td>color of text</td>
+					<td>#000</td>
+				</tr>
+				<tr>
+					<td>succText</td>
+					<td>text on the progress bar when successfully unlocked</td>
+					<td>&#39;ok!&#39;</td>
+				</tr>
+				<tr>
+					<td>succTextColor</td>
+					<td>color of succText</td>
+					<td>#000</td>
+				</tr>
+				<tr>
+					<td>successFunc</td>
+					<td>callback function when success</td>
+					<td><code>function() { alert(&#39;successfully
+							unlock!&#39;); }</code></td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>demo</h2>
+		<div class="bar1 bar"></div>
+		<div class="bar2 bar"></div>
+		<div class="bar3 bar"></div>
+		<div class="bar4 bar"></div>
+		<div class="bar5 bar"></div>
+	</div>
+	<script src='http://cdn.staticfile.org/jquery/1.10.0/jquery.min.js'></script>
+	<script src='../assets/js/unlock.js'></script>
+	<script>
+		$('.bar1').slideToUnlock();
+		$('.bar2').slideToUnlock({
+			height : 50,
+			width : 200,
+		});
+		$('.bar3').slideToUnlock({
+			text : '未解锁的文字',
+			succText : '解锁成功的文字'
+		});
+		$('.bar4').slideToUnlock({
+			bgColor : '#fce',
+			progressColor : '#f60',
+			succColor : '#f00',
+			textColor : '#fff',
+			succTextColor : '#fff',
+		});
+	</script>
+</body>
+</html>
