@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>⏳ 2345.wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1, p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>⏳ 距域名到期还有</h1>
+  <p id="countdown"></p>
+
+  <script>
+    // 设置目标日期和时间
+    var targetDate = new Date("2023-11-03T00:00:00Z");
+
+    // 更新倒计时
+    function updateCountdown() {
+      var currentDate = new Date();
+      var timeDifference = targetDate - currentDate;
+
+      // 计算剩余的天、小时、分钟和秒
+      var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      // 将倒计时显示在页面上
+      document.getElementById("countdown").innerHTML = days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒";
+
+      // 每秒更新一次倒计时
+      setTimeout(updateCountdown, 1000);
+    }
+
+    // 启动倒计时
+    updateCountdown();
+  </script>
+</body>
+</html>
